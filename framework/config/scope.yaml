@@ -1,0 +1,33 @@
+# SCOPE DEFINITION — single source of truth for the Global Safety Controller.
+# Every automated module and every manual action MUST validate against this file.
+engagement:
+  id: "ENG-YYYY-NNN"
+  client: "<client>"
+  authorization_ref: "<signed SOW / ROE reference>"
+  window:
+    start: "YYYY-MM-DDTHH:MM:SSZ"
+    end:   "YYYY-MM-DDTHH:MM:SSZ"
+  operators:
+    - name: "<operator>"
+      source_ips: ["<your egress IPs>"]
+
+in_scope:
+  domains: ["example.com", "*.corp.example.com"]
+  cidrs:   ["203.0.113.0/24", "10.10.0.0/16"]
+  hosts:   ["dc01.corp.example.com"]
+  cloud:   ["aws:111122223333", "azure:tenant-guid"]
+  apps:    ["https://app.example.com"]
+
+objectives:
+  - id: OBJ1
+    description: "Reach domain-admin-equivalent control (prove, do not abuse)."
+    success_criteria: "Demonstrated control of a tier-0 asset via documented path."
+  - id: OBJ2
+    description: "Access designated crown-jewel data store (read metadata only)."
+
+constraints:
+  allowed_disruptive: false           # DoS, mass scanning, lockouts require explicit approval
+  require_approval_for: ["credential-dumping","memory-access","persistence","impact-sim","exfil-sim"]
+  synthetic_data_only: true
+  max_scan_rate_pps: 500
+  business_hours_only: false

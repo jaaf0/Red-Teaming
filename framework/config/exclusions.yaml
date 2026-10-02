@@ -1,0 +1,13 @@
+# EXCLUSIONS — checked AFTER in_scope. An exclusion always wins over inclusion.
+never_touch:
+  hosts:  ["backup01.corp.example.com", "scada-*.corp.example.com"]
+  cidrs:  ["10.10.99.0/24"]          # OT / medical / safety network
+  domains: ["payments.example.com"]
+  ports:  []                          # e.g. [23] if telnet to legacy must be avoided
+fragile_systems:                      # in scope but require operator confirmation each action
+  - host: "erp01.corp.example.com"
+    reason: "legacy, unstable under load"
+hard_stops:
+  - "Any OT/ICS/SCADA segment"
+  - "Any system flagged life-safety or medical"
+  - "Production database writes of any kind"

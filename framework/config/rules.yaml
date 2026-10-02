@@ -1,0 +1,28 @@
+# RULES OF ENGAGEMENT — machine-readable guardrails for the orchestrator.
+safety_controller:
+  pre_action_checks:
+    - scope_match          # target in in_scope AND not in exclusions
+    - authorization_window # now within engagement.window
+    - technique_authorized # technique not in require_approval_for, else prompt
+    - disruptive_check     # if disruptive and not allowed_disruptive -> block
+    - rate_limit           # enforce max_scan_rate_pps / per-account attempt caps
+    - record               # write evidence record BEFORE acting
+  forbidden:
+    - attack_out_of_scope
+    - data_destruction
+    - uncontrolled_ransomware
+    - uncontrolled_dos
+    - disable_security_controls_without_authorization
+    - delete_evidence
+    - permanent_unauthorized_modification
+    - uncontrolled_credential_spraying
+    - account_lockout
+    - auto_propagation
+    - exfiltrate_real_sensitive_data
+  credential_policy:
+    spray_lockout_guard: true
+    max_attempts_per_account_per_window: 1   # stay well under lockout threshold
+    observe_lockout_policy_first: true
+  kill_switch:
+    file: "/var/run/redteam.STOP"            # presence halts all automation
+    honor_client_abort_contact: true
