@@ -29,6 +29,11 @@ Recon → Discover → Hypothesize → Validate → Update attack graph → Sele
 Every stage emits **structured results** (see `docs/23-evidence-collection.md`) that feed
 the next stage and the attack graph. Never execute one giant linear chain.
 
+## New here? Start with the guided walkthrough
+`docs/14-step-by-step-walkthrough.md` holds your hand phase by phase (what to run, how to use
+each tool, how to read the output, and the decision to the next phase). `docs/12` is the
+command reference it draws on.
+
 ## Document map (matches requested output format)
 
 | # | Document | Purpose |
@@ -47,6 +52,7 @@ the next stage and the attack graph. Never execute one giant linear chain.
 | 11 | `docs/11-purple-team-and-telemetry.md` | Purple team loop, SOC telemetry matrix, Wazuh/SIEM |
 | 12 | `docs/12-phase-tools-and-commands.md` | Per-phase tools + example commands reference |
 | 13 | `docs/13-defense-evasion-techniques.md` | Defense-evasion detection-coverage catalog |
+| 14 | `docs/14-step-by-step-walkthrough.md` | Guided phase-by-phase operator walkthrough |
 | 19 | `docs/19-decision-trees.md` | Master attack decision tree |
 | 20 | `docs/20-attack-graphs.md` | Mermaid attack graphs |
 | 21 | `docs/21-prioritization.md` | Objective attack-path prioritization |
