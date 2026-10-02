@@ -45,6 +45,8 @@ the next stage and the attack graph. Never execute one giant linear chain.
 | 09 | `docs/09-credential-lateral-evasion.md` | Credential access, lateral movement, defense evasion |
 | 10 | `docs/10-collection-exfil-impact.md` | Collection, exfiltration sim, impact sim |
 | 11 | `docs/11-purple-team-and-telemetry.md` | Purple team loop, SOC telemetry matrix, Wazuh/SIEM |
+| 12 | `docs/12-phase-tools-and-commands.md` | Per-phase tools + example commands reference |
+| 13 | `docs/13-defense-evasion-techniques.md` | Defense-evasion detection-coverage catalog |
 | 19 | `docs/19-decision-trees.md` | Master attack decision tree |
 | 20 | `docs/20-attack-graphs.md` | Mermaid attack graphs |
 | 21 | `docs/21-prioritization.md` | Objective attack-path prioritization |
