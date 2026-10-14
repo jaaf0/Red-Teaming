@@ -65,6 +65,8 @@ command reference it draws on, and `docs/15` has client-ready APT emulation scen
 | 99 | `docs/99-reporting-cleanup-checklist.md` | Reporting, cleanup, final master checklist |
 
 Configuration templates live in `config/` (`scope.yaml`, `exclusions.yaml`, `rules.yaml`).
+Our own custom PowerShell toolkit (scope controller, evidence logger, read-only host/domain/
+share discovery, benign impact-sim) lives in `scripts/` — see `scripts/README.md`.
 
 ## Non-negotiables
 
