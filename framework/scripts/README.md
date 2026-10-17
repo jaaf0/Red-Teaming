@@ -22,6 +22,19 @@ evidence (`docs/23`).
 | `Invoke-EgressRecon.ps1` | 10 | TA0010/T1046 | Read-only outbound egress-path reachability to an operator-controlled test collector. Moves no data | JSON report only |
 | `Invoke-ImpactMarker.ps1` | 11 | T1486 (sim) | **Benign** impact sim: drops harmless marker files in an `RT-Sandbox` dir for detection testing; `-Cleanup` removes them | sandbox markers only (reversible) |
 
+### Advanced audits, shared module, tests (all read-only)
+| Script | What it does |
+|---|---|
+| `RTCommon.psm1` | Shared LDAP helpers plus pure analysis functions (AD CS, GPP, Kerberos, trusts, severity merge, coverage scoring) used by the audits and unit-tested |
+| `Invoke-AdcsAudit.ps1` | AD CS template misconfiguration audit (ESC1-ESC4 style). Reads config only, requests no certificates |
+| `Invoke-SysvolAudit.ps1` | GPP `cpassword` presence (value never read or decoded) and low-privilege-writable SYSVOL scripts/policies |
+| `Invoke-KerberosPosture.ps1` | SPN accounts, RC4-only service accounts, privileged SPNs, stale password and krbtgt age, trusts without SID filtering, Protected Users usage |
+| `Invoke-AllChecks.ps1` | Runs the suite with per-step failure isolation and writes one severity-ranked `report.json` / `report.md` |
+| `Measure-DetectionCoverage.ps1` | Offline: scores expected vs SOC-confirmed detections per ATT&CK technique (CSV in, JSON out) |
+| `linux/Invoke-LinuxAudit.sh` | Linux exposure audit: sudo NOPASSWD, SUID/SGID, cron perms, SSH key perms/sshd config, capabilities, docker socket. Report only |
+
+Tests: `Invoke-Pester -Path ../tests` (Pester 5; no domain needed, analysis functions take plain objects).
+
 ### Custom-tool equivalents (why these exist)
 Clients often ask for "the tools you ran." These are our own, auditable, **read-only** stand-ins
 for the usual offensive utilities, safe to hand over as an engagement deliverable:
