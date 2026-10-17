@@ -32,7 +32,7 @@ the next stage and the attack graph. Never execute one giant linear chain.
 ## New here? Start with the guided walkthrough
 `docs/14-step-by-step-walkthrough.md` holds your hand phase by phase (what to run, how to use
 each tool, how to read the output, and the decision to the next phase). `docs/12` is the
-command reference it draws on.
+command reference it draws on, and `docs/15` has client-ready APT emulation scenarios.
 
 ## Document map (matches requested output format)
 
@@ -53,6 +53,7 @@ command reference it draws on.
 | 12 | `docs/12-phase-tools-and-commands.md` | Per-phase tools + example commands reference |
 | 13 | `docs/13-defense-evasion-techniques.md` | Defense-evasion detection-coverage catalog |
 | 14 | `docs/14-step-by-step-walkthrough.md` | Guided phase-by-phase operator walkthrough |
+| 15 | `docs/15-apt-emulation-scenarios.md` | Client-ready APT emulation scenarios (MITRE-mapped, with commands) |
 | 19 | `docs/19-decision-trees.md` | Master attack decision tree |
 | 20 | `docs/20-attack-graphs.md` | Mermaid attack graphs |
 | 21 | `docs/21-prioritization.md` | Objective attack-path prioritization |
@@ -64,6 +65,8 @@ command reference it draws on.
 | 99 | `docs/99-reporting-cleanup-checklist.md` | Reporting, cleanup, final master checklist |
 
 Configuration templates live in `config/` (`scope.yaml`, `exclusions.yaml`, `rules.yaml`).
+Our own custom PowerShell toolkit (scope controller, evidence logger, read-only host/domain/
+share discovery, benign impact-sim) lives in `scripts/` — see `scripts/README.md`.
 
 ## Non-negotiables
 
